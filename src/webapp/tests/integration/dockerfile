@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+# train machine learning model
+# save performances
+RUN mkdir /app
+WORKDIR /app
+RUN mkdir /data
+
+RUN echo "echo '{\"perf\":0.99}' > /data/perf.json; for i in \$(seq 1 300); do sleep 1; done" >> script.sh
+CMD ["sh", "/app/script.sh"]
